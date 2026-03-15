@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration & Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showSection(section) {
+            document.getElementById("registration-section").style.display = "none";
+            document.getElementById("search-section").style.display = "none";
+
+            document.getElementById(section).style.display = "block";
+        }
+    </script>
+</head>
+<body class="bg-gray-100 min-h-screen py-10 px-4">
+
+<div class="max-w-2xl mx-auto">
+
+    <h1 class="text-3xl font-bold text-center text-blue-800 mb-2">Student Portal</h1>
+    <p class="text-center text-gray-500 mb-8">Register a new student or search by Student ID</p>
+
+    <!-- Tabs Button -->
+    <div class="flex justify-center gap-4 mb-6">
+        <button onclick="showSection('registration-section')"
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+            Register Student</button>
+        <button onclick="showSection('search-section')"
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+            Search Student</button>
+    </div>
+
+
+    <!-- REGISTRATION FORM — POST method -->
+    <div id="registration-section" class="bg-white rounded-2xl shadow-md p-8 mb-8">
+        <h2 class="text-xl font-semibold text-blue-700 mb-6 border-b pb-2">📋 Student Registration</h2>
+        <form action="register.php" method="POST" class="space-y-4">
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Student ID</label>
+                <label>
+                    <input type="text" name="student_id" required placeholder="e.g. STU001"
+                           class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </label>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <label>
+                    <input type="text" name="name" required placeholder="e.g. Rahul Kumar"
+                           class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </label>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <label>
+                    <input type="email" name="email" required placeholder="e.g. rahul@example.com"
+                           class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </label>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Course</label>
+                <label>
+                    <input type="text" name="course" required placeholder="e.g. B.Tech Computer Science"
+                           class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </label>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <label>
+                    <input type="tel" name="phone" required placeholder="e.g. 9876543210"
+                           class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </label>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 rounded-lg transition">
+                Submit Registration
+            </button>
+        </form>
+    </div>
+
+    <!-- SEARCH PANEL — GET method -->
+    <div id="search-section" style="display: none" class="bg-white rounded-2xl shadow-md p-8">
+        <h2 class="text-xl font-semibold text-green-700 mb-6 border-b pb-2">🔍 Search Student</h2>
+        <form action="search.php" method="GET" class="flex gap-3">
+            <label>
+                <input type="text" name="student_id" required placeholder="Enter Student ID (e.g. STU001)"
+                       class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+            </label>
+            <button type="submit"
+                    class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-lg transition">
+                Search
+            </button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
